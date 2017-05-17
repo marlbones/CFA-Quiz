@@ -4,6 +4,7 @@ import Question from '../Question/Question';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import MultiChoice from '../MultiChoice/MultiChoice';
 import Results from '../Results/Results';
+import ProgCircle from '../ProgCircle/ProgCricle';
 
 class App extends Component {
   constructor(props) {
@@ -26,6 +27,11 @@ class App extends Component {
         question: 'Who is the best coding Youtuber?',
         correct_answer: 'Young Lamb',
         possible_answers: ['funfunfunction', 'Young Lamb', 'Wes Bos', 'Coding Train']
+      },
+      {
+        question: 'What is under the rainbow?',
+        correct_answer: 'Young Lamb',
+        possible_answers: ['Gold', 'Young Lamb', 'Happiness', 'Chicken Nuggets']
       }
     ]
   }
@@ -66,12 +72,16 @@ class App extends Component {
           {this.state.progress < this.quiz_data.length ? (
             <div>
               <Question current_question={this.quiz_data[this.state.progress].question} />
-              <ProgressBar current_step={this.state.progress + 1} question_length={this.quiz_data.length} />
               <MultiChoice
                 answers={this.quiz_data[this.state.progress].possible_answers}
                 updateSelected={this.updateSelected}
                 handleSubmit={this.submitAnswer}
                 selectedAnswer={this.state.selected} />
+                <div className="ProgCircle">
+                  <ProgressBar current_step={this.state.progress + 1} question_length={this.quiz_data.length} />
+                  <ProgCircle percent={this.state.progress/this.quiz_data.length*100} />
+                </div>
+                <br />
             </div>
           )
           : (
