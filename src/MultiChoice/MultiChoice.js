@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+var belle = require('belle');
+var Button = belle.Button;
 
 
 class MultiChoice extends Component {
   render() {
     return (
       <div>
-        {this.props.answers.map((answer, i) => <button key={i} onClick={() => this.props.updateSelected(answer)}>{answer}</button>)}
+        {this.props.answers.map((answer, i) => <Button key={i} onClick={() => this.props.updateSelected(answer)}>{answer}</Button>)}
         <br />
         <p>You have selected {this.props.selectedAnswer} </p>
-        <button onClick={this.props.handleSubmit}>Submit</button>
+        <Button className="submit" primary onClick={this.props.handleSubmit}>Submit</Button>
       </div>
     )
   }

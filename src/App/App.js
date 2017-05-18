@@ -5,6 +5,7 @@ import ProgressBar from '../ProgressBar/ProgressBar';
 import MultiChoice from '../MultiChoice/MultiChoice';
 import Results from '../Results/Results';
 import ProgCircle from '../ProgCircle/ProgCricle';
+var belle = require('belle');
 
 class App extends Component {
   constructor(props) {
